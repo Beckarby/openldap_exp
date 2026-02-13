@@ -19,7 +19,7 @@ uidNumber: 10001
 gidNumber: 10001
 homeDirectory: /home/andres.garcia
 mail: andres.garcia@atlas.com
-userPassword: marico
+userPassword: jojos
 
 # Groups
 dn: cn=admins,ou=groups,dc=atlas,dc=com
