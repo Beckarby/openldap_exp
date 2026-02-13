@@ -23,24 +23,9 @@ A minimal OpenLDAP container setup using `osixia/openldap`.
 ldapwhoami -x -H ldap://localhost -D "cn=admin,dc=atlas,dc=com" -w seguridad_segura
 ```
 
-### Search all entries
-```bash
-ldapsearch -x -H ldap://localhost -b "dc=atlas,dc=com" -D "cn=admin,dc=atlas,dc=com" -w seguridad_segura
-```
-
-### Search for a specific user
-```bash
-ldapsearch -x -H ldap://localhost -b "dc=atlas,dc=com" -D "cn=admin,dc=atlas,dc=com" -w seguridad_segura "(uid=andres.garcia)"
-```
-
 ### List all users
 ```bash
 ldapsearch -x -H ldap://localhost -b "ou=users,dc=atlas,dc=com" -D "cn=admin,dc=atlas,dc=com" -w seguridad_segura "(objectClass=inetOrgPerson)" cn mail
-```
-
-### List all groups
-```bash
-ldapsearch -x -H ldap://localhost -b "ou=groups,dc=atlas,dc=com" -D "cn=admin,dc=atlas,dc=com" -w seguridad_segura "(objectClass=groupOfNames)" cn member
 ```
 
 ### Test user authentication
@@ -48,7 +33,7 @@ ldapsearch -x -H ldap://localhost -b "ou=groups,dc=atlas,dc=com" -D "cn=admin,dc
 ldapwhoami -x -H ldap://localhost -D "uid=andres.garcia,ou=users,dc=atlas,dc=com" -w marico
 ```
 
-## Demo Scenarios
+## Demo
 
 ### 1. Access Control - User can't add entries
 ```bash
