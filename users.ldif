@@ -1,0 +1,34 @@
+# Organizational Units
+dn: ou=users,dc=atlas,dc=com
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=atlas,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+# Users 
+dn: uid=andres.garcia,ou=users,dc=atlas,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Andres Garcia
+sn: Garcia
+uid: andres.garcia
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/andres.garcia
+mail: andres.garcia@atlas.com
+userPassword: marico
+
+# Groups
+dn: cn=admins,ou=groups,dc=atlas,dc=com
+objectClass: groupOfNames
+cn: admins
+member: uid=andres.garcia,ou=users,dc=atlas,dc=com
+
+# Regular users group
+dn: cn=users,ou=groups,dc=atlas,dc=com
+objectClass: groupOfNames
+cn: users
+member: uid=andres.garcia,ou=users,dc=atlas,dc=com

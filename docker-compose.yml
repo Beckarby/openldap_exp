@@ -1,0 +1,16 @@
+services:
+  openldap: 
+    image: osixia/openldap:1.5.0
+    container_name: openldap-server
+    ports:
+      - "389:389"
+    environment:
+      LDAP_ADMIN_PASSWORD: seguridad_segura
+      LDAP_DOMAIN: "atlas.com"
+      LDAP_BASE_DN: "dc=atlas,dc=com"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ldapsearch", "-x", "-H", "ldap://localhost", "-b", "dc=atlas,dc=com", "-D", "cn=admin,dc=atlas,dc=com", "-w", "seguridad_segura"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
