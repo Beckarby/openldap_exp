@@ -11,24 +11,29 @@ ou: groups
 dn: uid=andres.garcia,ou=users,dc=atlas,dc=com
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
+objectClass: top
 cn: Andres Garcia
 sn: Garcia
 uid: andres.garcia
-uidNumber: 10001
-gidNumber: 10001
+uidNumber: 1000
+gidNumber: 500
 homeDirectory: /home/andres.garcia
 mail: andres.garcia@atlas.com
 userPassword: jojos
 
 # Groups
 dn: cn=admins,ou=groups,dc=atlas,dc=com
-objectClass: groupOfNames
+objectClass: posixGroup
+objectClass: top
 cn: admins
-member: uid=andres.garcia,ou=users,dc=atlas,dc=com
+gidNumber: 500
+memberUid: andres.garcia
+
 
 # Regular users group
 dn: cn=users,ou=groups,dc=atlas,dc=com
-objectClass: groupOfNames
+objectClass: posixGroup
+objectClass: top
 cn: users
-member: uid=andres.garcia,ou=users,dc=atlas,dc=com
+gidNumber: 501
+memberUid: andres.garcia
